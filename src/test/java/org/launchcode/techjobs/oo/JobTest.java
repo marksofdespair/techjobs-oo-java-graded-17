@@ -41,7 +41,7 @@ public class JobTest {
 
         String jobString = job1.toString();
 
-        assertEquals(System.lineSeparator(), jobString.substring(0, System.lineSeparator().length())); // Check for leading new line
+        assertEquals(System.lineSeparator(), jobString.substring(0, System.lineSeparator().length())); // Check for the leading line
         assertEquals(System.lineSeparator(), jobString.substring(jobString.length() - System.lineSeparator().length())); // Check for trailing new line
     }
     @Test
@@ -50,7 +50,7 @@ public class JobTest {
 
         String jobString = job.toString();
 
-        // Check if the labels and data are present in the string
+        // Checks the labels / data are present in string
         assertTrue(jobString.contains("ID: " + job.getId()));
         assertTrue(jobString.contains("Name: " + job.getName()));
         assertTrue(jobString.contains("Employer: " + job.getEmployer()));
