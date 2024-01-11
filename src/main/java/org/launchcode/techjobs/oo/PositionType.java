@@ -2,57 +2,39 @@ package org.launchcode.techjobs.oo;
 
 import javax.swing.text.Position;
 
-public class PositionType {
+public class PositionType extends JobField {
 
-    private int id;
-    private static int nextId = 1;
-    private String value;
-
+    // Constructors
     public PositionType() {
-        id = nextId;
-        nextId++;
+        // The constructor of the superclass (JobField) will automatically handle id and nextId
     }
 
     public PositionType(String value) {
-        this();
-        this.value = value;
+        super(value); // Call the constructor of the superclass (JobField) with the provided value
     }
 
+    // Custom toString, equals, and hashCode methods:
     // TODO: Add a custom toString() method that returns the data stored in 'value'.
     @Override
-    public String toString() { // returns the value of PositionType objects
-        return value;
+    public String toString() {
+        return super.getValue(); // Use the inherited getValue() method from JobField
     }
 
     // TODO: Add custom equals and hashCode methods. Consider two PositionType objects "equal" when
     //  their id fields match.
     @Override
-    public int hashCode() { // adds hashCode meth
-        return (id);
+    public int hashCode() {
+        return super.getId(); // Use the inherited getId() method from JobField
     }
 
     @Override
     public boolean equals(Object toBeCompared) {
-        if (this == toBeCompared)
-            return true;
-        if (toBeCompared == null || getClass() != toBeCompared.getClass())
-            return false;
-        PositionType otherPositionType = (PositionType) toBeCompared;
-        return id == otherPositionType.id();
+        return super.equals(toBeCompared); // Use the inherited equals() method from JobField
     }
 
     // Getters and Setters:
+    // No need to redefine these methods, as they are inherited from JobField
 
-    public int getId() {
-        return id;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
+    // TODO: Add any additional methods specific to the PositionType class if needed
 }
+
