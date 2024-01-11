@@ -13,7 +13,7 @@ public abstract class JobField {
     // fields
     private int id;
     private static int nextId = 1;
-    private String value;
+    public String value;
     // constructors
     public JobField() {
         id = nextId;
