@@ -37,4 +37,3 @@ public class PositionType extends JobField {
 
     // TODO: Add any additional methods specific to the PositionType class if needed
 }
-

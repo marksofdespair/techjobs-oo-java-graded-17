@@ -1,7 +1,8 @@
 package org.launchcode.techjobs.oo;
-import org.junit.Test; //added import state
-import static org.junit.Assert.*; //added import state
-import javax.naming.Name; //added import state
+
+
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class JobTest {
     @Test
@@ -15,11 +16,11 @@ public class JobTest {
     public void testJobConstructorSetsAllFields(){
         Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
-        assertTrue(job1.getName() instanceof String);
-        assertTrue(job1.getEmployer() instanceof Employer);
-        assertTrue(job1.getLocation() instanceof Location);
-        assertTrue(job1.getPositionType() instanceof PositionType);
-        assertTrue(job1.getCoreCompetency() instanceof CoreCompetency);
+        assertNotNull(job1.getName());
+        assertNotNull(job1.getEmployer());
+        assertNotNull(job1.getLocation());
+        assertNotNull(job1.getPositionType());
+        assertNotNull(job1.getCoreCompetency());
         assertEquals("Product tester", job1.getName());
         assertEquals("ACME", job1.getEmployer().getValue());
         assertEquals("Desert", job1.getLocation().getValue());
@@ -32,7 +33,7 @@ public class JobTest {
         Job job1 = new Job("Software Developer", new Employer("TechCo"), new Location("City"), new PositionType("Full-time"), new CoreCompetency("Java"));
         Job job2 = new Job("Software Developer", new Employer("TechCo"), new Location("City"), new PositionType("Full-time"), new CoreCompetency("Java"));
 
-        assertFalse(job1.equals(job2));
+        assertNotEquals(job1, job2);
     }
 
     @Test
@@ -41,7 +42,7 @@ public class JobTest {
 
         String jobString = job1.toString();
 
-        assertEquals(System.lineSeparator(), jobString.substring(0, System.lineSeparator().length())); // Check for the leading line
+        assertEquals(System.lineSeparator(), jobString.substring(0, System.lineSeparator().length())); // Check for leading new line
         assertEquals(System.lineSeparator(), jobString.substring(jobString.length() - System.lineSeparator().length())); // Check for trailing new line
     }
     @Test
@@ -50,7 +51,7 @@ public class JobTest {
 
         String jobString = job.toString();
 
-        // Checks the labels / data are present in string
+        // Check if the labels and data are present in the string
         assertTrue(jobString.contains("ID: " + job.getId()));
         assertTrue(jobString.contains("Name: " + job.getName()));
         assertTrue(jobString.contains("Employer: " + job.getEmployer()));
