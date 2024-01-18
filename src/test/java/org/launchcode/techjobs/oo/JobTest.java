@@ -30,14 +30,14 @@ public class JobTest {
 
     @Test
     public void testJobsForEquality(){
-        Job job1 = new Job("Software Developer", new Employer("TechCo"), new Location("City"), new PositionType("Full-time"), new CoreCompetency("Java"));
-        Job job2 = new Job("Software Developer", new Employer("TechCo"), new Location("City"), new PositionType("Full-time"), new CoreCompetency("Java"));
+        Job job1 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job job2 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         assertNotEquals(job1, job2);
     }
     @Test
     public void testToStringStartsAndEndsWithNewLine() {
-        Job job1 = new Job("Software Developer", new Employer("TechCo"), new Location("City"), new PositionType("Full-time"), new CoreCompetency("Java"));
+        Job job1 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         String jobString = job1.toString();
 
@@ -47,7 +47,7 @@ public class JobTest {
 
     @Test
     public void testToStringContainsCorrectLabelsAndData() {
-        Job job = new Job("Software Developer", new Employer("TechCo"), new Location("City"), new PositionType("Full-time"), new CoreCompetency("Java"));
+        Job job = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         String jobString = job.toString();
 
@@ -62,7 +62,7 @@ public class JobTest {
 
     @Test
     public void testToStringHandlesEmptyField() {
-        Job job = new Job("", new Employer("TechCo"), new Location("City"), new PositionType("Full-time"), new CoreCompetency("Java"));
+        Job job = new Job("", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         String jobString = job.toString();
 
